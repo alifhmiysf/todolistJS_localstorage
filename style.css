@@ -1,5 +1,5 @@
-:root{
-    --background-color: #fffff;
+:root {
+    --background-color: #ffffff;
     --text-color: #000000;
     --header-background-color: #c893dd;
     --button-background-color: #d9d9d9;
@@ -7,7 +7,7 @@
 }
 
 body.light-theme {
-    --background-color : #ffffff;
+    --background-color: #ffffff;
     --text-color: #000000;
     --header-background-color: #ffffff;
     --header-text-color: #ffffff;
@@ -20,13 +20,15 @@ body.dark-theme {
     --text-color: #ffffff;
     --header-text-color: #ffffff;
     --header-background-color: #444444;
-    --button-background-color : #555555;
-    --button-text-color: #fffff;
+    --button-background-color: #555555;
+    --button-text-color: #ffffff;
 }
-body{
+
+/* Menyentrongkan tombol di tengah halaman */
+body {
     background-color: var(--background-color);
     color: var(--text-color);
-    padding: 70px;
+    padding: 50px;
 }
 
 .header {
@@ -82,38 +84,41 @@ ul li.checked::before {
     right: 0;
     top: 0;
     padding: 12px 16px 12px 16px;
-    border-style: solid;
-    border-color: white;
 }
 
 .close {
-    background-color: #f44336;
+    background-color:#7a3120;
     color: white;
     margin: 9px 12px 12px 0;
-    border-radius: 0 12px 0 12px;
+    border-radius: 12px 12px 12px 12px;
     
 }
 
 .edit {
-    background-color: #4caf50;
+    background-color: #46291b;
     color: white;
     rounded-circle : 2px;
     margin-top: 9px;
     margin-right: 60px; /* Jarak antara tombol edit dan close */
-    border-radius: 12px 0 12px 0;
+    border-radius: 12px 12px 12px 12px;
 }
 
 .close:hover {
-    background-color: #f44336;
+    background-color: #914629;
+    color:white
+}
+.edit:hover {
+    background-color: #5b4035;
     color:white
 }
 
 .header {
-    background-image: url('https://images.pexels.com/photos/1045534/pexels-photo-1045534.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://images.pexels.com/photos/5946812/pexels-photo-5946812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-size: cover;
-    padding: 30px 40px;
-    color: white;
+    position: relative;
+    padding: 20px;
     text-align: center;
+    border-bottom: 2px solid #ccc;
 }
 
 .header::after{
@@ -164,16 +169,21 @@ ul li.checked::before {
 }
 
 .low-priority {
-    background-color: #f0f0f0;
+    background-color: #BDA69A;
+    color: white;
+    list-style-type: none;
 }
 
 .medium-priority {
-    background-color: #ffeb3b;
+    background-color: #9C7D67;
+    color: white;
+    list-style-type: none;
 }
 
 .high-priority {
-    background-color: #f44336;
+    background-color: #6C4A35;
     color: white;
+    list-style-type: none;
 }
 
 select {
@@ -190,18 +200,65 @@ select {
     align-items: center;
 }
 
-#themeToggleBtn {
-    margin-bottom: 12px;
+/* Menyembunyikan checkbox */
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transform: translate(0, 0); /* Pastikan elemen tidak ditransformasikan */
 }
-.inputSearch {
-    margin-bottom: 12px;
+
+#themeToggleBtn {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+/* Style untuk label yang akan berfungsi sebagai tombol */
+label[for="themeToggleBtn"] {
+    cursor: pointer;
+    text-indent: -9999px;
+    width:50px;
+    height: 30px;
+    background: white;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+/* Mengatur tampilan toggle bulat di dalam tombol */
+label[for="themeToggleBtn"]:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: brown;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+/* Mengubah warna background dan posisi toggle saat checkbox di-check */
+#themeToggleBtn:checked + label[for="themeToggleBtn"] {
+    background: #46291B;
+}
+
+#themeToggleBtn:checked + label[for="themeToggleBtn"]:after {
+    left: calc(40% - 5px);
+    transform: translateX(10px);
+}
+
+/* Mengatur animasi saat tombol aktif (saat ditekan) */
+label[for="themeToggleBtn"]:active:after {
+    width: 13px;
+}
+.btnSortSearch {
+    margin-bottom: 19px;
     margin-right: auto; /* Dorong elemen lain ke kanan */
     margin-left: 0; /* Pastikan berada di pojok kiri */
     padding: 8px;
     font-size: 1em;
     height: 36px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
 }
 
 .timestamp{
@@ -221,18 +278,17 @@ select {
 
 
 #sortInput {
-    float:right;
    /* Tentukan lebar dropdown sortir */
 }
 
 @media (max-width: 768px) {
     .inputSearch, #sortInput {
-        width: 50%;
+        width:50%;
     }
 }
 
 #sortInput {
-    margin-top: 10px;
-    padding: 5px;
     font-size: 1em;
 }
+
+

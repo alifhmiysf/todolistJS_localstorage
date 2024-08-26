@@ -7,20 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div class="header" id="myDIV">
-        <h2>My To-Do List</h2>
         <div class="theme-switcher">
-            <button id="themeToggleBtn">Themes</button>
+            <input type="checkbox" id="themeToggleBtn" />
+            <label for="themeToggleBtn">Themes</label>
         </div>
-        <input type="text" id="searchInput" class="inputSearch" placeholder="Add new task...">
-        <div>
-           
+        <h2>My To-Do List</h2>
+        
+        
+        <div class="btnSortSearch">
+            <input type="text" id="searchInput" class="inputSearch" placeholder="search task...">
         <select name="" id="sortInput">
             <option value="date">Sort by date </option>
             <option value="priority">Sort by priority</option>
             <option value="checked">Sort by Checked</option>
         </select>
         </div>
+
         <div class="header-input">
             <input type="text" class="inputAdd" id="myInput">
             <select id="priorityInput">
@@ -34,6 +38,6 @@
 
     <ul id="myUL"></ul>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script>   
 </body>
 </html>

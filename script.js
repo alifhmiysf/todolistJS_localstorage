@@ -10,6 +10,10 @@ function loadTodos() {
 
 
 function addTodoToList(text, checked = false, priority = 'low', timestamp = null) {
+    if (priority === 'high') {
+        text = text.toUpperCase();
+    }
+    
     // Membuat elemen <li> baru untuk item daftar
     let li = document.createElement("li")
     // Mengatur teks dari <li> menjadi nilai input
